@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周明健 · 个人简历</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --ink:#1a1a2e;
+  --ink2:#33334d;
+  --muted:#777799;
+  --line:#e0e0ea;
+  --bg:#f5f5f8;
+  --card:#ffffff;
+  --primary:#3b5998;
+  --primary-light:#e8eef7;
+  --primary-dark:#2d4373;
+  --accent:#e8554e;
+  --accent-light:#fdf0ef;
+  --teal:#2c8a7a;
+  --teal-light:#e6f5f2;
+  --amber:#d4940e;
+  --amber-light:#fdf6e3;
+  --tag-bg:#f0f0f5;
+  --tag-blue:#e8eef7;
+  --tag-green:#e6f5f2;
+  --tag-amber:#fdf6e3;
+  --tag-red:#fdf0ef;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:"PingFang SC","Noto Sans SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrapper{
+  max-width:820px;
+  margin:0 auto;
+  padding:32px 20px 48px;
+}
+
+/* ====== 顶部名片区域 ====== */
+.header-card{
+  background:var(--card);
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:16px;
+  display:flex;
+}
+
+.header-left{
+  flex:1;
+  padding:36px 32px 28px;
+}
+
+.header-left h1{
+  font-size:30px;
+  font-weight:700;
+  letter-spacing:6px;
+  color:var(--primary-dark);
+  margin-bottom:4px;
+}
+
+.header-left .subtitle{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:18px;
+  letter-spacing:1px;
+}
+
+.header-left .contact-line{
+  font-size:13px;
+  color:var(--ink2);
+  line-height:2.1;
+}
+
+.header-left .contact-line .label{
+  color:var(--primary);
+  font-weight:600;
+  margin-right:4px;
+}
+
+/* 证件照方框 */
+.photo-box{
+  width:120px;
+  min-width:120px;
+  margin:28px 28px 28px 0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+
+.photo-frame{
+  width:110px;
+  height:150px;
+  border:2px solid var(--line);
+  border-radius:6px;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.photo-frame .photo-placeholder{
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.6;
+}
+
+.photo-frame .photo-placeholder .icon{
+  font-size:28px;
+  display:block;
+  margin-bottom:4px;
+  opacity:0.4;
+}
+
+/* ====== 板块通用 ====== */
+.section{
+  background:var(--card);
+  border-radius:12px;
+  padding:28px 32px;
+  margin-bottom:14px;
+}
+
+.section-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--card);
+  background:var(--primary);
+  padding:5px 16px;
+  border-radius:4px;
+  display:inline-block;
+  margin-bottom:20px;
+  letter-spacing:2px;
+}
+
+/* ====== 条目 ====== */
+.entry{
+  margin-bottom:22px;
+}
+
+.entry:last-child{margin-bottom:0}
+
+.entry-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:6px;
+}
+
+.entry-title{
+  font-size:14.5px;
+  font-weight:700;
+  color:var(--ink);
+}
+
+.entry-sub{
+  font-size:13px;
+  color:var(--teal);
+  font-weight:600;
+}
+
+.entry-date{
+  font-size:12px;
+  color:var(--muted);
+  white-space:nowrap;
+  background:var(--bg);
+  padding:2px 10px;
+  border-radius:10px;
+}
+
+.entry-desc{
+  font-size:13px;
+  color:var(--ink2);
+  line-height:1.8;
+  margin-bottom:4px;
+}
+
+.entry-list{
+  list-style:none;
+  padding-left:0;
+}
+
+.entry-list li{
+  font-size:13px;
+  color:var(--ink2);
+  line-height:1.8;
+  padding-left:14px;
+  position:relative;
+  margin-bottom:2px;
+}
+
+.entry-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:11px;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--primary);
+  opacity:0.6;
+}
+
+/* ====== 荣誉标签 ====== */
+.tag-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tag{
+  font-size:12px;
+  padding:5px 12px;
+  border-radius:16px;
+  font-weight:500;
+}
+
+.tag.blue{background:var(--tag-blue);color:var(--primary)}
+.tag.green{background:var(--tag-green);color:var(--teal)}
+.tag.amber{background:var(--tag-amber);color:var(--amber)}
+.tag.red{background:var(--tag-red);color:var(--accent)}
+.tag.gray{background:var(--tag-bg);color:var(--muted)}
+
+/* ====== 技能区 ====== */
+.skill-row{
+  display:flex;
+  align-items:flex-start;
+  margin-bottom:14px;
+  gap:12px;
+}
+
+.skill-row:last-child{margin-bottom:0}
+
+.skill-label{
+  font-size:13px;
+  font-weight:700;
+  color:var(--primary);
+  min-width:100px;
+  flex-shrink:0;
+  padding-top:1px;
+}
+
+.skill-content{
+  font-size:13px;
+  color:var(--ink2);
+  line-height:1.8;
+}
+
+/* ====== 兴趣爱好 ====== */
+.hobby-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.hobby-item{
+  padding:14px;
+  background:var(--bg);
+  border-radius:8px;
+  border-left:3px solid var(--primary);
+}
+
+.hobby-item h4{
+  font-size:13px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:4px;
+}
+
+.hobby-item p{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* ====== 格言 ====== */
+.motto{
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+  font-style:italic;
+  padding:14px;
+  background:var(--primary-light);
+  border-radius:8px;
+  margin-top:8px;
+}
+
+/* ====== 底部 ====== */
+.footer{
+  text-align:center;
+  font-size:11px;
+  color:var(--muted);
+  padding:16px 0;
+}
+
+/* ====== 打印优化 ====== */
+@media print{
+  body{background:#fff}
+  .wrapper{max-width:100%;padding:0}
+  .header-card,.section{border-radius:0}
+  .section{page-break-inside:avoid;margin-bottom:0}
+}
+
+/* ====== 移动端 ====== */
+@media(max-width:640px){
+  .wrapper{padding:16px 10px 32px}
+  .header-card{flex-direction:column}
+  .header-left{padding:24px 20px 16px}
+  .header-left h1{font-size:24px;letter-spacing:3px;text-align:center}
+  .header-left .subtitle{text-align:center}
+  .header-left .contact-line{font-size:12px}
+  .photo-box{margin:0 auto;width:100px}
+  .photo-frame{width:90px;height:120px}
+  .section{padding:20px 16px}
+  .section-title{font-size:14px}
+  .entry-head{flex-direction:column}
+  .entry-title{font-size:14px}
+  .hobby-grid{grid-template-columns:1fr}
+  .skill-row{flex-direction:column;gap:2px}
+  .skill-label{min-width:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- ====== 顶部名片 ====== -->
+  <div class="header-card">
+    <div class="header-left">
+      <h1>周明健</h1>
+      <div class="subtitle">数据科学与大数据技术</div>
+      <div class="contact-line">
+        <span class="label">电话：</span>18532651732　
+        <span class="label">邮箱：</span>3689762294@qq.com<br>
+        <span class="label">出生：</span>2006.01　
+        <span class="label">性别：</span>男　
+        <span class="label">城市：</span>河北省廊坊市<br>
+        <span class="label">民族：</span>汉族　
+        <span class="label">政治面貌：</span>共青团员　
+        <span class="label">婚姻：</span>未婚
+      </div>
+    </div>
+    <div class="photo-box">
+      <img src="photo.jpg" alt="证件照" style="width:110px;height:150px;object-fit:cover;border-radius:6px;border:2px solid var(--line);">
+    </div>
+  </div>
+
+  <!-- ====== 教育经历 ====== -->
+  <div class="section">
+    <div class="section-title">教育经历</div>
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <span class="entry-title">燕京理工学院</span>
+          <span class="entry-sub">　数据科学与大数据技术 · 本科</span>
+        </div>
+        <span class="entry-date">2024.09 — 至今</span>
+      </div>
+      <div class="entry-desc">勤奋好学，荣获校级一等奖学金、三等奖学金及国家励志奖学金。</div>
+    </div>
+  </div>
+
+  <!-- ====== 工作经历 ====== -->
+  <div class="section">
+    <div class="section-title">工作经历</div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">勤工俭学与大型活动志愿者</span>
+      </div>
+      <ul class="entry-list">
+        <li>责任心与执行力：通过安检、服务等勤工俭学岗位锤炼。</li>
+        <li>视野与协作力：在央视节目、科技峰会等多项大型活动中验证。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ====== 项目经历 ====== -->
+  <div class="section">
+    <div class="section-title">项目经历</div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">「青学漫游指南」公众号</span>
+        <span class="entry-sub">独立运营</span>
+      </div>
+      <ul class="entry-list">
+        <li>内容创作：独立完成从选题、撰稿到发布的全部流程，输出基于深度阅读的原创内容。</li>
+        <li>排版设计：熟练运用排版工具，保障内容的美观性与可读性。</li>
+        <li>运营复盘：通过简单数据分析驱动内容与标题的持续优化，提升运营效果。</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">拓尔思智能学院2601期数据科学-Python数据挖掘项目实习</span>
+      </div>
+      <ul class="entry-list">
+        <li>项目实习：积极参与拓尔思智能学院2601期数据科学-Python数据挖掘项目实习，在真实业务场景中实践数据挖掘与分析技术。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ====== 校园经历 ====== -->
+  <div class="section">
+    <div class="section-title">校园经历</div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <span class="entry-title">红杉部门志愿者协会</span>
+          <span class="entry-sub">　干事</span>
+        </div>
+        <span class="entry-date">2024.09 — 2025.03</span>
+      </div>
+      <ul class="entry-list">
+        <li>组织与协调：作为外联任务小组长，主动组织并号召同学完成外联任务，通过有效的线上沟通，为部门活动提供了可靠的物资保障。</li>
+        <li>文案与记录：担任部门会议记录员，负责会议内容的记录、梳理与纪要撰写工作，培养了精准捕捉信息、进行文字提炼与归纳的能力。</li>
+        <li>支持与保障：参与校内多项大型活动的后勤支持工作，负责物资清点与人员集合，培养了高度的责任心与团队协作精神。</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">校运动会</span>
+        <span class="entry-sub">　运动员（800米 & 跳远双季军 / 跳高亚军）</span>
+      </div>
+      <ul class="entry-list">
+        <li>锤炼了毅力、专注力与结果导向的思维。</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">微光志愿服务社</span>
+        <span class="entry-sub">　小组长</span>
+      </div>
+      <ul class="entry-list">
+        <li>学习与自我提升：积极参加部门举办的各类讲座与培训，不断拓宽志愿服务认知边界，提升综合素养。</li>
+        <li>宣传设计与技能应用：积极利用 AI 工具制作部门活动海报，将前沿技术与日常宣传结合，提升了视觉呈现效率与美感。</li>
+        <li>信息统筹与核查：负责线上统计与核对活动名单及物资清单，确保人员与物资信息准确无误，提升了数据处理与统筹协调能力。</li>
+        <li>活动组织与统筹：担任小组长，负责组织小组外出实践活动，跟进"向光而行"等志愿活动，保障志愿服务顺利开展。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ====== 荣誉证书 ====== -->
+  <div class="section">
+    <div class="section-title">荣誉证书</div>
+    <div class="tag-grid">
+      <span class="tag blue">中国大学生计算机设计大赛省赛三等奖</span>
+      <span class="tag blue">全国大学生英语竞赛校级三等奖</span>
+      <span class="tag green">"词达人杯"全国大学生英语词汇能力大赛省赛三等奖</span>
+      <span class="tag green">英语综合能力大赛校赛银奖</span>
+      <span class="tag amber">优秀大学生志愿者</span>
+      <span class="tag amber">马拉松优秀志愿者</span>
+      <span class="tag red">优秀共青团员标兵 / 优秀共青团员</span>
+      <span class="tag red">优秀运动员</span>
+      <span class="tag red">校级三好学生</span>
+      <span class="tag amber">校学生网络中心年度优秀干事</span>
+    </div>
+  </div>
+
+  <!-- ====== 兴趣爱好 ====== -->
+  <div class="section">
+    <div class="section-title">兴趣爱好</div>
+    <div class="hobby-grid">
+      <div class="hobby-item">
+        <h4>阅读与写作</h4>
+        <p>通过定期阅读思维、写作类书籍，持续进行知识输入与思考提炼，为内容创作奠定坚实基础。</p>
+      </div>
+      <div class="hobby-item">
+        <h4>空翻</h4>
+        <p>在挑战中锻炼了非凡的勇气、专注力与抗压能力。</p>
+      </div>
+      <div class="hobby-item">
+        <h4>定期复盘总结</h4>
+        <p>保持每日对学习、实践进行结构化反思与记录，培养持续迭代的思维习惯，并指导后续行动优化。</p>
+      </div>
+      <div class="hobby-item">
+        <h4>主动拓展技能边界</h4>
+        <p>主动学习 Adobe Premiere 等视频剪辑工具。</p>
+      </div>
+    </div>
+    <div class="motto">"我始终坚信学习一项技能可以慢一些，对就行。"</div>
+  </div>
+
+  <!-- ====== 职业技能 ====== -->
+  <div class="section">
+    <div class="section-title">职业技能</div>
+    <div class="skill-row">
+      <div class="skill-label">英语水平</div>
+      <div class="skill-content">大学英语六级、大学英语四级</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">计算机水平</div>
+      <div class="skill-content">全国计算机等级考试二级</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">人工智能认证</div>
+      <div class="skill-content">
+        华为 HCIA-AI 认证证书、华为人工智能技术链与实践微认证证书、基于DeepSeek和RAG构建智能小助手微认证、华为AI Agent技术与应用微认证证书、HarmonyOS应用开发者基础认证
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">普通话水平</div>
+      <div class="skill-content">普通话二级甲等</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">其他证书</div>
+      <div class="skill-content">机动车驾驶证 C1</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    周明健 · 简历 · 2026
+  </div>
+
+</div>
+
+</body>
+</html>
